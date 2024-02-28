@@ -1,5 +1,6 @@
 P{
-    font-family: "Roboto", Arial;
+    font-family: Roboto, Arial;
+    font-weight: 500;
 }
 body, html {
     margin: 0;
@@ -11,7 +12,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: #f0f0f0a9;
     padding: 10px 20px;
     height: 30px;
 
@@ -23,8 +24,11 @@ header {
     top: 50px;
     bottom: 0;
     width: 100px;
-    background-color: #f0f0f0;
+    background-color: #f0f0f0a9;
     padding: 20px;
+    border-right-style: solid;
+    border-right-color: rgba(172, 172, 172, 0.288);
+    border-right-width: 1px;
 }
 
 .sidebar a {
