@@ -20,8 +20,9 @@ body, html, p {
 }
 
 .title {
-    font-family: Roboto, Arial;
-    font-size: 20px;
+    font-family: Kanit, Roboto;
+    font-weight: 400;
+    font-size: 25px;
     flex-grow: 1;
     text-align: center;
 }
@@ -32,7 +33,7 @@ body, html, p {
     top: 75px;
     bottom: 0;
     width: 150px;
-    background-color: lightblue;
+    background-color: lightgray;
     padding: 30px;
     border-right-style: solid;
     border-right-color: rgba(172, 172, 172, 0.288);
@@ -45,6 +46,10 @@ body, html, p {
     color: black;
     text-decoration: none;
     font-size: 20px;
+}
+
+.sidebar a:hover{
+    text-decoration: underline;
 }
 
 .right {
@@ -75,12 +80,10 @@ main {
 
 .body {
     margin-top: 50px;
+    margin-bottom: 10px;
     
 }
 
-.news{
-    width:300px;
-}
 
 .thumbnail{
     width: 100%;
@@ -90,12 +93,35 @@ main {
 .news-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 10px;
+    column-gap: 30px;
     row-gap: 30px;
+    
 }
 
-@media (max-width: 1300){
+.news-details{
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+
+}
+
+.news-sport{
+    font-size: 13px ;
+    margin-top: 8px;
+}
+
+.news:hover{
+    cursor:pointer;
+    background-color: rgba(172, 172, 172, 0.288);
+    .news-info{
+        color: purple;
+    }
+}
+
+@media (max-width: 1400px){
     .news-grid{
         grid-template-columns: 1fr 1fr;
     }
 }
+
+
