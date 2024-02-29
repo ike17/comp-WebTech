@@ -1,0 +1,18 @@
+.live-indicator{
+    font-family: Roboto,Kanit;
+    position: absolute;
+    background: red;
+    color: white;
+    right: 15px;
+    bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    font-weight: 500;
+   
+}
+
+.sidebar-football{
+    font-weight: bold;
+    text-decoration: underline;
+}
