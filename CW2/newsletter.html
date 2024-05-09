@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Signup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="min-h-screen flex justify-center items-center">
+        <form id="newsletterForm"
+            class="max-w-md w-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <a href="home.html"
+                class="absolute top-0 left-0 mt-4 ml-4 bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Back</a>
+            <h2 class="text-2xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+            <div class="mb-8">
+                <label for="email"
+                    class="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
+                <input id="email"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    type="email" placeholder="Enter your email">
+                <p id="emailError" class="text-red-500 text-xs mt-1 hidden">Please enter a valid email address.</p>
+            </div>
+            <div class="mb-8 grid grid-cols-2 gap-4">
+                <p class="text-gray-700 text-sm font-bold mb-2">Select your favorite sports:</p>
+                <label class="inline-flex items-center cursor-pointer hover:cursor-pointer">
+                    <input type="checkbox" class="form-checkbox text-indigo-600" checked>
+                    <span class="ml-2">Football</span>
+                </label>
+                <!-- Add hover cursor-pointer to the rest of the checkboxes -->
+                <label class="inline-flex items-center cursor-pointer hover:cursor-pointer">
+                    <input type="checkbox" class="form-checkbox text-indigo-600">
+                    <span class="ml-2">Basketball</span>
+                </label>
+                <!-- Repeat the pattern for the other checkboxes -->
+            </div>
+            <div class="mb-4">
+                <label class="flex items-center text-sm text-gray-700">
+                    <input type="checkbox" class="form-checkbox text-indigo-600"
+                        id="agree">
+                    <span class="ml-2">I agree to the <a href="#"
+                            class="text-indigo-600 underline">terms and
+                            conditions</a></span>
+                </label>
+            </div>
+            <div class="flex justify-center items-center mb-8">
+                <button id="subscribeBtn"
+                    class="bg-indigo-300 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-not-allowed"
+                    type="button">
+                    Subscribe
+                </button>
+            </div>
+        </form>
+    </div>
+    <footer class="bg-gray-200 text-center p-4 text-gray-700 fixed bottom-0 w-full">
+        <p class="text-gray-700 text-sm">© 2024 Sports Today, Inc. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to toggle subscribe button state based on terms and conditions checkbox
+        document.getElementById('agree').addEventListener('change', function () {
+            const subscribeBtn = document.getElementById('subscribeBtn');
+            subscribeBtn.disabled = !this.checked;
+            subscribeBtn.classList.toggle('cursor-not-allowed', !this.checked);
+        });
+    
+        // Function to handle subscribe button click
+        document.getElementById('subscribeBtn').addEventListener('click', function () {
+            const email = document.getElementById('email').value;
+            const emailError = document.getElementById('emailError');
+            const sportCheckboxes = document.querySelectorAll('[type="checkbox"]');
+            let isSportSelected = false;
+    
+            // Check if email is empty or invalid
+            if (!email || !validateEmail(email)) {
+                emailError.classList.remove('hidden');
+                return;
+            } else {
+                emailError.classList.add('hidden');
+            }
+    
+            // Check if at least one sport is selected
+            sportCheckboxes.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    isSportSelected = true;
+                }
+            });
+    
+            if (!isSportSelected) {
+                alert('Please select at least one sport.');
+                return;
+            }
+    
+            // Submit the form if all validations pass
+            document.getElementById('newsletterForm').submit();
+        });
+    
+        // Function to validate email address
+        function validateEmail(email) {
+            const re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Football Scores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100 transition-colors duration-300">
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-25 hidden transition-opacity duration-500 ease-in-out"></div>
+    <header class="fixed top-0 left-0 right-0 z-30 w-full bg-gray-200 shadow-md p-4 flex justify-between items-center space-x-4 px-10 h-16">
+        <div id="menuIcon" class="text-2xl cursor-pointer text-gray-900">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </div>
+        <h1 class="text-2xl font-bold text-gray-900">Sports Today</h1>
+        <div class="flex gap-4 items-center">
+            <div id="searchIcon" class="relative text-xl cursor-pointer text-gray-900">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+                <input type="text" id="searchInput" class="absolute right-full mr-3 top-0 px-2 border border-gray-300 w-0 opacity-0 hidden transition-all ease-out duration-500 bg-gray-100 placeholder-gray-300" placeholder="Search...">
+            </div>
+            <div id="themeToggle" class="text-xl cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                  </svg>                  
+            </div>
+        </div>
+    </header>
+    <nav id="flyoutMenu" class="fixed top-16 left-0 right-0 bg-gray-200 p-5 transform -translate-y-full transition-transform duration-500 ease-linear z-20 px-10">
+        <a class="block p-2 text-black hover:bg-gray-300 focus:bg-gray-300" href="home.html">Home</a>
+        <a class="block p-2 text-black hover:bg-gray-300 focus:bg-gray-300" href="football.html">Football</a>
+        <a class="block p-2 text-black hover:bg-gray-300 focus:bg-gray-300" href="basketball.html">Basketball</a>
+        <a class="block p-2 text-black hover:bg-gray-300 focus:bg-gray-300" href="f1.html">F1</a>
+        <a class="block p-2 text-black hover:bg-gray-300 focus:bg-gray-300" href="wrestling.html">Wrestling</a>
+        <a class="block p-2 text-black hover:bg-gray-300 focus:bg-gray-300" href="newsletter.html">More Info!</a>
+    </nav>
+    <main class="pt-24 p-5 transition-opacity duration-300 filter backdrop-blur-none pb-10 px-10">
+        <div class="text-3xl font-bold mb-5 text-gray-900">
+            <p>Live Football Scores</p>
+        </div>
+        <div id="scores" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white p-4 shadow rounded-lg flex items-center justify-between h-52">
+                <div class="flex items-center flex-col pl-20">
+                    <img src="icons/club logo/fc-barcelona.svg" alt="FC Barcelona Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="font-semibold text-sm">FC Barcelona</p>
+                </div>
+                <div class="text-center flex-grow">
+                    <h2 class="text-xl font-semibold mb-1">vs</h2>
+                    <p class="text-gray-800 text-lg"><span id="score1">0 - 0</span></p>
+                    <p class="text-gray-600 text-sm">Updated: <span id="time1">00:00</span> GMT</p>
+                </div>
+                <div class="flex items-center flex-col pr-20">
+                    <img src="icons/club logo/real-madrid-c-f.svg" alt="Real Madrid C.F. Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="text-sm font-semibold">Real Madrid C.F.</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 shadow rounded-lg flex items-center justify-between h-52">
+                <div class="flex items-center flex-col pl-20">
+                    <img src="icons/club logo/manchester-united.svg" alt="Manchester United Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="font-semibold text-sm">Manchester United</p>
+                </div>
+                <div class="text-center flex-grow">
+                    <h2 class="text-xl font-semibold mb-1">vs</h2>
+                    <p class="text-gray-800 text-lg"><span id="score2">0 - 0</span></p>
+                    <p class="text-gray-600 text-sm">Updated: <span id="time2">00:00</span> GMT</p>
+                </div>
+                <div class="flex items-center flex-col pr-20">
+                    <img src="icons/club logo/chelsea-fc-2.svg" alt="Chelsea Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="text-sm font-semibold">Chelsea</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 shadow rounded-lg flex items-center justify-between h-52">
+                <div class="flex items-center flex-col pl-20">
+                    <img src="icons/club logo/borussia-dortmund.svg" alt="Borussia Dortmund Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="font-semibold text-sm">Borussia Dortmund</p>
+                </div>
+                <div class="text-center flex-grow">
+                    <h2 class="text-xl font-semibold mb-1">vs</h2>
+                    <p class="text-gray-800 text-lg"><span id="score3">0 - 0</span></p>
+                    <p class="text-gray-600 text-sm">Updated: <span id="time3">00:00</span> GMT</p>
+                </div>
+                <div class="flex items-center flex-col pr-20">
+                    <img src="icons/club logo/bayer-leverkusen.svg" alt="Bayer Leverkusen Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="text-sm font-semibold">Bayer Leverkusen</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 shadow rounded-lg flex items-center justify-between h-52">
+                <div class="flex items-center flex-col pl-20">
+                    <img src="icons/club logo/bayern-munich.svg" alt="Bayern Munich Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="font-semibold text-sm">Bayern Munich</p>
+                </div>
+                <div class="text-center flex-grow">
+                    <h2 class="text-xl font-semibold mb-1">vs</h2>
+                    <p class="text-gray-800 text-lg"><span id="score4">0 - 0</span></p>
+                    <p class="text-gray-600 text-sm">Updated: <span id="time4">00:00</span> GMT</p>
+                </div>
+                <div class="flex items-center flex-col pr-20">
+                    <img src="icons/club logo/paris-saint-germain-logo-vector.svg" alt="Paris Saint-Germain Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="text-sm font-semibold">Paris Saint-Germain</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 shadow rounded-lg flex items-center justify-between h-52">
+                <div class="flex items-center flex-col pl-20">
+                    <img src="icons/club logo/argentina-national-football-team-logo.svg" alt="Argentina National Football Team Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="font-semibold text-sm">Argentina</p>
+                </div>
+                <div class="text-center flex-grow">
+                    <h2 class="text-xl font-semibold mb-1">vs</h2>
+                    <p class="text-gray-800 text-lg"><span id="score5">0 - 0</span></p>
+                    <p class="text-gray-600 text-sm">Updated: <span id="time5">00:00</span> GMT</p>
+                </div>
+                <div class="flex items-center flex-col pr-20">
+                    <img src="icons/club logo/italy-national-football-team-1.svg" alt="Italy National Football Team Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="text-sm font-semibold">Italy</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 shadow rounded-lg flex items-center justify-between h-52">
+                <div class="flex items-center flex-col pl-20">
+                    <img src="icons/club logo/liverpool-fc-4.svg" alt="Liverpool FC Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="font-semibold text-sm">Liverpool</p>
+                </div>
+                <div class="text-center flex-grow">
+                    <h2 class="text-xl font-semibold mb-1">vs</h2>
+                    <p class="text-gray-800 text-lg"><span id="score6">0 - 0</span></p>
+                    <p class="text-gray-600 text-sm">Updated: <span id="time6">00:00</span> GMT</p>
+                </div>
+                <div class="flex items-center flex-col pr-20">
+                    <img src="icons/club logo/newcastle-united.svg" alt="Newcastle United Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="text-sm font-semibold">Newcastle United</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 shadow rounded-lg flex items-center justify-between h-52">
+                <div class="flex items-center flex-col pl-20">
+                    <img src="icons/club logo/juventus-4.svg" alt="Juventus Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="font-semibold text-sm">Juventus</p>
+                </div>
+                <div class="text-center flex-grow">
+                    <h2 class="text-xl font-semibold mb-1">vs</h2>
+                    <p class="text-gray-800 text-lg"><span id="score7">0 - 0</span></p>
+                    <p class="text-gray-600 text-sm">Updated: <span id="time7">00:00</span> GMT</p>
+                </div>
+                <div class="flex items-center flex-col pr-20">
+                    <img src="icons/club logo/aston-villa.svg" alt="Aston Villa Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="text-sm font-semibold">Aston Villa</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 shadow rounded-lg flex items-center justify-between h-52">
+                <div class="flex items-center flex-col pl-20">
+                    <img src="icons/club logo/f-c-porto.svg" alt="FC Porto Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="font-semibold text-sm">FC Porto</p>
+                </div>
+                <div class="text-center flex-grow">
+                    <h2 class="text-xl font-semibold mb-1">vs</h2>
+                    <p class="text-gray-800 text-lg"><span id="score8">0 - 0</span></p>
+                    <p class="text-gray-600 text-sm">Updated: <span id="time8">00:00</span> GMT</p>
+                </div>
+                <div class="flex items-center flex-col pr-20">
+                    <img src="icons/club logo/leicester-city-fc-1.svg" alt="LeicesterCity Logo" class="w-14 h-14 fill-current text-blue-500 mb-2">
+                    <p class="text-sm font-semibold">Leicester City</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gray-200 text-center p-4 text-gray-700">
+        <p class="text-gray-700 text-sm">© 2024 Sports Today, Inc. All rights reserved.</p>
+    </footer>
+    <script src="script/general.js"></script>
+</body>
+</html>
