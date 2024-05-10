@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100 transition-colors duration-300">
+    <div class="fixed inset-0 bg-black bg-opacity-25 hidden transition-opacity duration-500 ease-in-out" id="overlay"></div>
+    <header class="fixed top-0 left-0 right-0 z-30 w-full bg-gray-200 shadow-md p-4 flex justify-between items-center px-10 h-16">
+        <a href="score_updates.html" class="text-xl font-bold text-gray-900 hover:text-gray-600">
+            &larr; Back
+        </a>
+        <h1 class="text-2xl font-bold text-gray-900">Match Details</h1>
+    </header>
+    <main class="pt-24 p-5 transition-opacity duration-300 filter backdrop-blur-none pb-10 px-10">
+        <div class="bg-white shadow-lg rounded-lg p-6">
+            <h2 class="text-2xl font-bold mb-4">FC Barcelona vs Real Madrid</h2>
+            <p class="text-lg">Stadium: Camp Nou, Barcelona</p>
+            <h3 class="mt-4 mb-2 font-bold text-xl">Match Facts:</h3>
+            <ul class="list-disc pl-5">
+                <li>Weather: Sunny, 24°C</li>
+                <li>Referee: Carlos Velasco Carballo</li>
+                <li>Kick-off: 19:00 GMT</li>
+            </ul>
+            <h3 class="mt-4 mb-2 font-bold text-xl">Goal Scorers:</h3>
+            <ul class="list-disc pl-5">
+                <li>Lionel Messi (10', 58')</li>
+                <li>Karim Benzema (32')</li>
+            </ul>
+            <h3 class="mt-4 mb-2 font-bold text-xl">Line Ups:</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <h4 class="font-semibold text-lg">FC Barcelona</h4>
+                    <ul class="list-disc pl-5">
+                        <li>Marc-André ter Stegen (GK)</li>
+                        <li>Sergio Busquets (C)</li>
+                        <li>Gerard Piqué</li>
+                        <!-- More players -->
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg">Real Madrid</h4>
+                    <ul class="list-disc pl-5">
+                        <li>Thibaut Courtois (GK)</li>
+                        <li>Sergio Ramos (C)</li>
+                        <li>Toni Kroos</li>
+                        <!-- More players -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gray-200 text-center p-4 text-gray-700 fixed bottom-0 inset-x-0">
+        <p class="text-sm">© 2024 Sports Today, Inc. All rights reserved.</p>
+    </footer>
+    <script src="script/general.js"></script>
+</body>
+</html>

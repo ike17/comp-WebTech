@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Shot Chart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gray-200 p-4 text-xl font-bold text-center">
+        Basketball Interactive Shot Chart
+    </header>
+    <main class="p-4">
+        <div id="shotChart" class="relative h-96 w-full bg-gray-300">
+            <!-- Placeholder for shot chart drawing -->
+        </div>
+        <script>
+            // Placeholder function to draw the shot chart
+            function drawShotChart() {
+                const chartArea = document.getElementById('shotChart');
+                // Example to simulate shots
+                chartArea.innerHTML = ''; // Clear previous chart
+                for (let i = 0; i < 10; i++) {
+                    const shot = document.createElement('div');
+                    shot.className = 'absolute bg-red-500 rounded-full';
+                    shot.style.width = '20px';
+                    shot.style.height = '20px';
+                    shot.style.left = `${Math.random() * 100}%`;
+                    shot.style.top = `${Math.random() * 100}%`;
+                    chartArea.appendChild(shot);
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', drawShotChart);
+        </script>
+    </main>
+    <footer class="bg-gray-200 p-4 text-center">
+        © 2024 Sports Analytics Inc.
+    </footer>
+</body>
+</html>

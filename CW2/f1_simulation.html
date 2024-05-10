@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Race Simulation Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gray-200 p-4 text-xl font-bold text-center">
+        F1 Race Simulation Dashboard
+    </header>
+    <main class="p-4">
+        <div id="raceInfo" class="p-4 bg-white shadow rounded">
+            <h2 class="text-lg font-bold">Live Race Simulation</h2>
+            <div id="raceStatus" class="mt-2">
+                <!-- Dynamic race information will be loaded here -->
+            </div>
+        </div>
+        <script>
+            function simulateRace() {
+                const status = document.getElementById('raceStatus');
+                let lap = 0;
+                const maxLaps = 70;
+
+                const raceInterval = setInterval(() => {
+                    if (lap >= maxLaps) {
+                        clearInterval(raceInterval);
+                        status.innerHTML = '<strong>Race Finished!</strong>';
+                        return;
+                    }
+                    lap++;
+                    status.innerHTML = `Lap ${lap} of ${maxLaps}`;
+                }, 1000);
+            }
+
+            document.addEventListener('DOMContentLoaded', simulateRace);
+        </script>
+    </main>
+    <footer class="bg-gray-200 p-4 text-center">
+        © 2024 Sports Today, Inc.
+    </footer>
+</body>
+</html>
